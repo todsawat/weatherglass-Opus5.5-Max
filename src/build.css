@@ -1,0 +1,10 @@
+/* the build label under the title */
+#wg-ui .wg-build {
+  position: absolute; left: calc(var(--wg-edge) + var(--sl, 0px) + 3px); top: calc(var(--wg-edge) + var(--st, 0px) + 38px);
+  font: 500 9.5px/14px var(--wg-sans); letter-spacing: 0.1em; color: var(--wg-ink-2); text-decoration: none; white-space: nowrap;
+  opacity: 0.62; pointer-events: auto; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); border-radius: 4px;
+}
+#wg-ui .wg-build:hover { color: var(--wg-brass); opacity: 1; }
+#wg-ui .wg-build:focus-visible { outline: 1.5px solid var(--wg-brass); outline-offset: 3px; opacity: 1; }
+#wg-ui.wg-hidden .wg-build.wg-fx, #wg-ui.wg-pre .wg-build.wg-fx { opacity: 0; }
+@media (max-width: 420px) { #wg-ui .wg-build { font-size: 8.5px; letter-spacing: 0.06em; } }

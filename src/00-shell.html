@@ -1,0 +1,35 @@
+<title>Weatherglass</title>
+<style>
+/* One full-bleed 3D scene with small frosted panels at the edges; nothing over the centre. A single dark look by design. */
+:root {
+  color-scheme: dark;
+  --wg-ink: #f4efe6;                          /* text */
+  --wg-ink-2: rgba(244, 239, 230, 0.7);       /* secondary text */
+  --wg-brass: #ffd98a;                        /* accent */
+  --wg-panel: rgba(21, 19, 17, 0.56);
+  --wg-line: rgba(255, 246, 228, 0.13);
+  --wg-room-1: #1b1916;
+  --wg-room-2: #0d0c0b;
+  --wg-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --wg-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --wg-edge: 18px;
+}
+[hidden] { display: none !important; }
+html, body { height: 100%; margin: 0; background: var(--wg-room-2); color: var(--wg-ink); overflow: hidden; overscroll-behavior: none; }
+body { font: 500 12px/1.35 var(--wg-sans); -webkit-font-smoothing: antialiased; }
+#wg-root { position: fixed; inset: 0; overflow: hidden; background: var(--wg-room-2); touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+#wg-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; outline: none; touch-action: none; }
+#wg-ui { position: absolute; inset: 0; pointer-events: none; }
+#wg-loading { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  background: radial-gradient(ellipse at 50% 46%, var(--wg-room-1), var(--wg-room-2) 72%); transition: opacity 1.5s ease; z-index: 50; }
+#wg-loading.wg-done { opacity: 0; pointer-events: none; }
+#wg-loading h1 { margin: 0; font: 400 34px/1 var(--wg-serif); letter-spacing: 0.14em; color: var(--wg-ink); opacity: 0.9; }
+#wg-loading p { margin: 0; font: 500 10.5px/1 var(--wg-sans); letter-spacing: 0.34em; text-transform: uppercase; color: var(--wg-ink-2); animation: wg-pulse 2.2s ease-in-out infinite; text-align: center; padding: 0 16px; max-width: 34em; line-height: 1.6; }
+@keyframes wg-pulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 0.85; } }
+@media (prefers-reduced-motion: reduce) { #wg-loading p { animation: none; opacity: 0.7; } #wg-loading { transition-duration: 0.2s; } }
+</style>
+<div id="wg-root">
+  <canvas id="wg-canvas" tabindex="-1" aria-label="Weatherglass: a miniature landscape in a glass case. Use the tools to play the weather."></canvas>
+  <div id="wg-ui"></div>
+  <div id="wg-loading" role="status"><h1>Weatherglass</h1><p id="wg-loading-note">sealing the atmosphere…</p></div>
+</div>

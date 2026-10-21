@@ -1,0 +1,13 @@
+{
+  "name": "weatherglass-opus5.5-max",
+  "private": true,
+  "description": "Weatherglass \u2014 Claude Opus 5.5 (Max effort) build",
+  "scripts": {
+    "build": "node build.cjs",
+    "shot": "node tools/shot.cjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.0",
+    "sharp": "^0.34.0"
+  }
+}
